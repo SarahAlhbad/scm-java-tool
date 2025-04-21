@@ -2,19 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
+
 package passwordgenerator;
 
-/**
- *
- * @author mohAlyosofi
- */
 import java.security.SecureRandom;
 import java.util.Scanner;
-import javax.xml.transform.Source;
 
 public class PasswordGenerator {
 
-   
     private static final String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
     private static final String DIGITS    = "0123456789";
@@ -36,11 +31,14 @@ public class PasswordGenerator {
         int length = scanner.nextInt();
 
         String pwd = generatePassword(length);
-        // هنا نلوّن كلمة السر فقط
+
+        
         String coloredPwd = PasswordColorizer.colorize(pwd);
+ 
+        String strength = PasswordStrengthChecker.evaluate(pwd);
 
+      
         System.out.println("Generated Password: " + coloredPwd);
+        System.out.println(strength);
     }
-    
 }
-
