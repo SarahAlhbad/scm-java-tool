@@ -5,7 +5,10 @@
 
 package passwordgenerator;
 
+
+
 import java.security.SecureRandom;
+
 import java.util.Scanner;
 
 public class PasswordGenerator {
@@ -14,13 +17,15 @@ public class PasswordGenerator {
     private static final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
     private static final String DIGITS    = "0123456789";
     private static final String CHAR_POOL = UPPERCASE + LOWERCASE + DIGITS;
-
     public static String generatePassword(int length) {
+
         SecureRandom random = new SecureRandom();
         StringBuilder pwd = new StringBuilder(length);
+
         for (int i = 0; i < length; i++) {
             int idx = random.nextInt(CHAR_POOL.length());
             pwd.append(CHAR_POOL.charAt(idx));
+
         }
         return pwd.toString();
     }
@@ -29,16 +34,16 @@ public class PasswordGenerator {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter desired password length: ");
         int length = scanner.nextInt();
-
         String pwd = generatePassword(length);
 
-        
-        String coloredPwd = PasswordColorizer.colorize(pwd);
- 
-        String strength = PasswordStrengthChecker.evaluate(pwd);
+        // هنا نلوّن كلمة السر
 
-      
+        String coloredPwd = PasswordColorizer.colorize(pwd);
+        String strength = PasswordStrengthChecker.evaluate(pwd);
         System.out.println("Generated Password: " + coloredPwd);
         System.out.println(strength);
+
     }
+
 }
+
