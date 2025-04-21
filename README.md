@@ -27,6 +27,8 @@ PasswordGenerator/
 
 ✅ Random password generation
 ✅ Custom password length
+✅ add specific symbols
+✅ colorize generated password on java console
 
 ## 📄 License
 
