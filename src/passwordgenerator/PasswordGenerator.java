@@ -14,21 +14,20 @@ import javax.xml.transform.Source;
 
 public class PasswordGenerator {
 
+   
     private static final String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
-    private static final String DIGITS = "0123456789";
+    private static final String DIGITS    = "0123456789";
     private static final String CHAR_POOL = UPPERCASE + LOWERCASE + DIGITS;
 
     public static String generatePassword(int length) {
         SecureRandom random = new SecureRandom();
-        StringBuilder password = new StringBuilder(length);
-
+        StringBuilder pwd = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
-            int index = random.nextInt(CHAR_POOL.length());
-            password.append(CHAR_POOL.charAt(index));
+            int idx = random.nextInt(CHAR_POOL.length());
+            pwd.append(CHAR_POOL.charAt(idx));
         }
-
-        return password.toString();
+        return pwd.toString();
     }
 
     public static void main(String[] args) {
@@ -36,8 +35,11 @@ public class PasswordGenerator {
         System.out.print("Enter desired password length: ");
         int length = scanner.nextInt();
 
-        String password = generatePassword(length);
-        System.out.println("Generated Password: " + password);
+        String pwd = generatePassword(length);
+        // هنا نلوّن كلمة السر فقط
+        String coloredPwd = PasswordColorizer.colorize(pwd);
+
+        System.out.println("Generated Password: " + coloredPwd);
     }
     
 }
