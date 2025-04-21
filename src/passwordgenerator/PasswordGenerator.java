@@ -6,7 +6,7 @@ package passwordgenerator;
 
 /**
  *
- * @author mohAlyosofi
+ * @author 
  */
 import java.security.SecureRandom;
 import java.util.Scanner;
@@ -36,7 +36,7 @@ public class PasswordGenerator {
         int length = scanner.nextInt();
 
         String pwd = generatePassword(length);
-        // هنا نلوّن كلمة السر فقط
+        // هنا نلوّن كلمة السر
         String coloredPwd = PasswordColorizer.colorize(pwd);
 
         System.out.println("Generated Password: " + coloredPwd);
