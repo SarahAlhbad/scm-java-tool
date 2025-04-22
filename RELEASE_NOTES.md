@@ -7,3 +7,8 @@
 - Added support for special symbols (!@#$%^&*)
 - Color password on console output 
 - Resolved merge conflict in README.md
+
+  
+## v1.2
+- Added PasswordStrengthChecker.java
+- Passwords are now evaluated based on length, numbers, symbols, and uppercase letters
